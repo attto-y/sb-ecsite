@@ -11,7 +11,8 @@ public interface OrderHistoryDao {
 
 	// 注文情報を登録する
 	@Insert("""
-    			-- 【Lesson05】ここにSQL文を記述
+    			insert into order_history (product_id, order_count, order_at)
+    			values (#{productId}, #{orderCount}, NOW());
             """)
 	public void insertOrderHistory(int productId, int orderCount);
 

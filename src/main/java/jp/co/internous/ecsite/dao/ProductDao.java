@@ -34,8 +34,21 @@ public interface ProductDao {
 
   // 商品IDをもとにした1件の商品情報の検索
   @Select("""
-      -- 【Lesson04】ここにSQL文を記述
-
+      SELECT
+        p.product_id,
+        p.product_name,
+        p.product_description
+        p.product_price,
+        p.product_image_path,
+        c.category_name
+      FROM
+        product AS p
+      INNER JOIN
+        category AS c
+      ON
+        p.category_id = c.category_id
+      WHERE
+        p.product_id = #{productId};
         """)
   public ProductDto getProductByProductId(int productId);
 

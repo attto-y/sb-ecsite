@@ -31,15 +31,15 @@ public class ProductController {
 
 	// １件の商品情報を取得して商品詳細画面を表示する
 	//【Ｑ２】URL「http://localhost:8080/ecsite/detail」とひもづけする
-	@GetMapping("Q2")
+	@GetMapping("/ecsite/detail")
 	//【Ｑ３】パラメータとして送られてきた値 productId を引数「int productId」に格納する
-	public ModelAndView showDetail(@RequestParam("Q3")int productId, ModelAndView mav) {
+	public ModelAndView showDetail(@RequestParam("productId")int productId, ModelAndView mav) {
 		//【Ｑ４】受け取った商品IDをもとにデータベースから１件の商品情報を取得し、product という変数（新たに宣言）に格納する
-
+		ProductDto product = productDao.getProductByProductId(productId);
 		//【Ｑ５】レスポンスに検索結果の商品情報１件分を追加する
-
+		mav.addObject("product", product);
 		//【Ｑ６】レスポンスとして次に表示させるHTMLファイル名を指定する
-
+		mav.setViewName("detail");
 		return mav;
 	}
 
