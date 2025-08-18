@@ -13,19 +13,19 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProductController {
 
 	// productDao という変数名で ProductDao インターフェースを利用するための宣言
-
-
+	@Autowired
+	private ProductDao productDao;
 
 	// 全商品情報を取得して商品一覧画面を表示する
     //【Ｑ１】URL「http://localhost:8080/ecsite/product」とひもづけする
-	@GetMapping("Q1")
+	@GetMapping("/ecsite/product")
 	public ModelAndView showProductList(ModelAndView mav) {
 		// 商品テーブルから全ての商品情報を取得する
-
+		ArrayList<ProductDto> productList = productDao.getAllProducts();
 		// レスポンスに検索した全商品の情報を追加する
-
+		mav.addObject("productList", productList);
 		// レスポンスとして次に表示させるHTMLファイル名を指定する
-		
+		mav.setViewName("product_list");
 		return mav;
 	}
 

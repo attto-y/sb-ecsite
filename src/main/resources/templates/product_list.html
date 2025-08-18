@@ -43,7 +43,7 @@
       <div class="product-container">
 
         <!--【Ｑ１】【Ｑ２】レスポンスとして返ってきた productList の全件を１件ずつ取り出して変数 product に格納 -->
-        <div th:each="Q1 : ${Q2}"  class="product">
+        <div th:each="product : ${productList}"  class="product">
 
           <!-- 商品のサムネイル画像（リンク） 開始 -->
           <a th:href="@{/ecsite/detail(productId=${product.productId})}">
@@ -60,12 +60,12 @@
 
           <div class="product-name">
 			<!--【Ｑ３】product（商品1件）の productName の値を取得 -->
-            <div th:text="${Q3}" class="label"></div>
+            <div th:text="${product.productName}" class="label"></div>
           </div>
 
           <div class="product-price">
 			<!--【Ｑ４】product（商品1件）の productPrice の値を取得 -->
-            <div th:text="${Q4}" class="format-price"></div>
+            <div th:text="${product.productPrice}" class="format-price"></div>
           </div>
           
         </div>
