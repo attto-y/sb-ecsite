@@ -42,7 +42,7 @@
       <!-- (商品一覧エリア 開始) -->
       <div class="product-container">
 
-        <!--【Ｑ１】【Ｑ２】レスポンスとして返ってきた productList の全件を１件ずつ取り出して変数 product に格納 -->
+        <!--レスポンスとして返ってきた productList の全件を１件ずつ取り出して変数 product に格納 -->
         <div th:each="product : ${productList}"  class="product">
 
           <!-- 商品のサムネイル画像（リンク） 開始 -->
@@ -54,17 +54,17 @@
           <!-- 商品のサムネイル画像（リンク） 終了 -->
 
           <div class="product-category">
-			<!-- product（商品1件）の categoryName の値を取得 -->
+		    	<!-- product（商品1件）の categoryName の値を取得 -->
             <div th:text="${product.categoryName}" class="common-tag"></div>
           </div>
 
           <div class="product-name">
-			<!--【Ｑ３】product（商品1件）の productName の値を取得 -->
+		    	<!--product（商品1件）の productName の値を取得 -->
             <div th:text="${product.productName}" class="label"></div>
           </div>
 
           <div class="product-price">
-			<!--【Ｑ４】product（商品1件）の productPrice の値を取得 -->
+		    	<!--product（商品1件）の productPrice の値を取得 -->
             <div th:text="${product.productPrice}" class="format-price"></div>
           </div>
           
